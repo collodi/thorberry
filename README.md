@@ -2,7 +2,7 @@
 
 Lighting Watching System with a Raspberry Pi
 
-Editional Steps
+Additional Steps
 - nohup /home/pi/www/startup in /etc/rc.local
 - auto rootfs extend in /etc/rc.local 
 - confs directory
