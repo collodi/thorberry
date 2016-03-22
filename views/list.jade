@@ -1,0 +1,29 @@
+extends layout
+
+block script
+  script(type='text/javascript').
+    var del_confirm = function(t, d, del_link) {
+      var msg = 'Delete ' + d + '?';
+      if (confirm(msg))
+        t.href = del_link + "&del=" + d;
+    };
+
+    var up_confirm = function(frm, v) {
+      var msg = 'Upload ' + v + '? This will erase the previous file.';
+      if (confirm(msg))
+        frm.submit();
+    };
+
+block content    
+  each d in res.list
+    p
+      div
+        a(href= res.link + d)= d
+        | 
+        if res.del && session.level > 99
+          a(href='', onclick='del_confirm(this, "' + d + '", "/list?t=' + res.t + '");') delete
+        else if res.new
+          form(action='/upload', method='post', enctype='multipart/form-data', style='display: inline;')
+            input(type='hidden', name='f', value= d)
+            input(type='file', name='file', onchange='up_confirm(parentNode, this.value);')
+        

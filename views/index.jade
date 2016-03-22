@@ -1,0 +1,23 @@
+extends layout
+
+block meta
+  meta(content='30', http-equiv='refresh')
+
+block content
+  label
+    b Thorberry is 
+  b
+    span(style='color: ' + res.thorberry_color + ';')= res.thorberry
+  br
+  label
+    b Lighting  
+  b
+     span(style='color: ' + res.light_color + ';')= res.light
+  br
+  br
+  label
+    b Last Updated at 
+  b
+    span= res.last_time
+  br
+  span(style='white-space: pre;')= res.last_checked

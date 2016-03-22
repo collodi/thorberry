@@ -1,0 +1,46 @@
+extends layout
+
+block script
+  script(type='text/javascript').
+    var ask_psk = function(ssid) {
+      var psk = prompt("Enter the password");
+      document.getElementById('ssid').value = ssid;
+      document.getElementById('psk').value = psk;
+      document.getElementById('frm').submit();
+    };
+
+block style
+  style.
+    .padleft {
+       padding-left: 50px;
+    }
+
+    .ssid {
+      color: blue;
+      text-decoration: none;
+    }
+
+    td {
+      border-bottom: 1px solid black;
+    }
+
+    .status {
+      font: inherit;
+      font-weight: bold;
+    }
+
+block content
+  pre(class='status')= res.status
+  table
+    each ssid in res.ssids
+      tr
+        td
+          a(class='ssid', href='#', onclick='ask_psk(this.innerHTML);')= ssid[0]
+        | 
+        td(class='padleft')= ssid[1]
+        | 
+        td(class='padleft')= ssid[2]
+
+  form(id='frm', action='/wireless', method='post', style='display: none;')
+    input(id='ssid', type='hidden', name='ssid', value='')
+    input(id='psk', type='hidden', name='psk', value='')

@@ -1,0 +1,35 @@
+block title
+  title Configuration
+
+block contents
+  p= res.appname
+  form(method="post", role="form", action="/conf")
+    input(type='hidden', name='aPpnAme', value= res.appname)
+    each v, k in res.data
+      p
+        label= k
+        |: 
+        input(required=true, name= k, type='text', value= v)
+    button(type="submit") Update
+  if res.appname == "thorgpio"
+    p
+      |README
+      br
+      |Thorberry will switch on only one GPIO per status.
+      br
+      |"level_pin" corresponds to the GPIO number thorberry will toggle when the status changes.
+      br
+      |Starting from "All Clear", the number corresponds to "Red Alert", then back to "All Clear".
+      br
+      |The top level can only have one index. e.g) 0, 1, 2, 3, 2, 1, 0 (# = levels)
+      br
+      |For example, the first four GPIO numbers are satisfied when the status is climbing and equals.
+      br
+      |The last four are satisfied when the status is declining and equals. 
+      br
+      |For negate output (pull-up), enter the negative counterpart of a number.
+      br
+      |Having both signs of a number in any of the input will not result in what you want.
+      br
+      b
+        |*****The numbers are GPIO numbers, not the pin number. Google Raspberry PI pinouts for reference.

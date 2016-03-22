@@ -1,0 +1,10 @@
+extends layout
+
+block title
+  title Redirecting in 5 seconds.
+block meta
+  meta(http-equiv='refresh', content='5;URL=' + res.to)
+
+block content
+  p= res.msg
+  p Redirecting in 5 seconds.
