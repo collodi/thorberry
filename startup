@@ -1,3 +1,9 @@
 #!/bin/sh
 nohup python /home/pi/www/files/pys/thorlogger.py &
 nohup nodejs /home/pi/www/index.js &
+
+wpa_file="/home/pi/www/wpa_supplicant.conf"
+if [ -e "$wpa_file" ]
+then
+	wpa_supplicant -B -D wext -i wlan0 -c /home/pi/www/wpa_supplicant.conf
+fi
