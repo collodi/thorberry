@@ -9,4 +9,5 @@ Additional Steps
 - extend_rootfs
 - shadow
 - pip, nodejs, git, requests, xmltodict
-- crontab for auto git clon
+- crontab for auto git
+- 
