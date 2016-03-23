@@ -10,4 +10,4 @@ Additional Steps
 - shadow
 - pip, nodejs, git, requests, xmltodict
 - crontab for update
-- wpa_supplicant.conf
+- wpa_supplicant.conf backup
