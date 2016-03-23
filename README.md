@@ -11,3 +11,4 @@ Additional Steps
 - pip, nodejs, git, requests, xmltodict
 - crontab for update
 - wpa_supplicant.conf backup
+- interface backup
