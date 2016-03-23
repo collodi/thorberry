@@ -30,6 +30,11 @@ function gen_session() {
 	return t_sessionid;
 }
 
+app.all('*', function(req, res, next) {
+	res.header('X-Powered-By', 'Thorberry');
+	next();
+});
+
 app.post('/', bodyparse.urlencoded({ extended: true }), function(req, res, next) {
 	fs.readFile('/home/pi/shadow', function(err, data) {
 		if (err) {
