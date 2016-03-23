@@ -1,11 +1,11 @@
 #!/bin/bash
 
-conf_file="/home/pi/www/wpa_supplicant.conf"
+conf_file="/etc/wpa_supplicant/wpa_supplicant.conf"
 
 # create wpa_supplicant.conf file
-cat /etc/wpa_supplicant/wpa_supplicant.conf > "$conf_file"
+cat /etc/wpa_supplicant/wpa_supplicant.conf.bak > "$conf_file"
 echo "$2" | wpa_passphrase "$1" >> "$conf_file"
 # exec
-wpa_supplicant -B -D wext -i wlan0 -c "$conf_file"
+/sbin/wpa_supplicant -s -B -P /run/wpa_supplicant.wlan0.pid -i wlan0 -D n180211,wext -c "$conf_file"
 # get ip
 dhclient wlan0
