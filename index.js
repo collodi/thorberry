@@ -310,10 +310,10 @@ app.post('/wireless', bodyparse.urlencoded({ extended: true }), function(req, re
 				});
 			}
 
-			spawn('/home/pi/www/wpa_script', [req.body.ssid, req.body.psk], { stdio: 'ignore' });
+			spawn('/home/pi/www/wpa_script', [req.body.ssid, req.body.psk, req.body.address, req.body.subnet, req.body.gateway], { stdio: 'ignore' });
 
 			res.to = '/wireless';
-			res.msg = 'Wireless connection tried successfully. You will be redirected to the wireless page. Check the status to check if connection is made.';
+			res.msg = 'The static IP might need a reboot to take effect. Check the connection status before reboot. You will be redirected to the wireless page now.';
 			res.render('redirect', { session: sessions[sid], res: res });
 		}
 	});
