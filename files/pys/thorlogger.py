@@ -1,5 +1,5 @@
 from thorberry import Thorberry
-import json, threading, sys, os
+import json, threading, sys, os, time
 
 class Thorlogger:
 	log_dir = '/home/pi/logs/'
@@ -50,8 +50,10 @@ class Thorlogger:
 		# log last checked
 		self.write_line('/home/pi/last_checked.txt', json.dumps(res_dict), 'w')
 		if self.repeat:
-			t = threading.Timer(self.conf['interval'], self.timer)
-			t.start()
+			time.sleep(self.conf['interval'])
+			self.timer()
+#			t = threading.Timer(self.conf['interval'], self.timer)
+#			t.start()
 
 	def write_line(self, filename, line, append):
 		if isinstance(line, list):
