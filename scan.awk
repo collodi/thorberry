@@ -6,6 +6,8 @@ $1 == "BSS" {
 }
 $1 == "SSID:" {
     SSID = $2;
+    for (i=3;i<=NF;i++)
+	SSID = SSID FS $i;
 }
 $1 == "signal:" {
     sig = $2 " " $3;
