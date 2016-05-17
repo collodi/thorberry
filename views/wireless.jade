@@ -3,16 +3,16 @@ extends layout
 block script
   script(type='text/javascript').
     var ask_psk = function(ssid) {
-      if (document.getElementById('addr').value.length === 0 || document.getElementById('subn').value.length === 0 || document.getElementById('gate').value.length === 0) {
-        alert('Need static IP settings filled in! We don\'t wanna lose your thorberry!');
-      } else {
+      //if (document.getElementById('addr').value.length === 0 || document.getElementById('subn').value.length === 0 || document.getElementById('gate').value.length === 0) {
+      //  alert('Need static IP settings filled in! We don\'t wanna lose your thorberry!');
+      //} else {
         var psk = prompt("Enter the password");
         if (psk !== null) {
           document.getElementById('ssid').value = ssid;
           document.getElementById('psk').value = psk;
           document.getElementById('frm').submit();
         }
-      }
+      //}
     };
 
 block style
@@ -40,9 +40,9 @@ block content
   form(id='frm', action='/wireless', method='post')
     input(id='ssid', type='hidden', name='ssid', value='')
     input(id='psk', type='hidden', name='psk', value='')
-    input(id='addr', name='address', placeholder='Static IPv4')
-    input(id='subn', name='subnet', placeholder='Subnet Mask')
-    input(id='gate', name='gateway', placeholder='Gateway')
+    //input(id='addr', name='address', placeholder='Static IPv4')
+    //input(id='subn', name='subnet', placeholder='Subnet Mask')
+    //input(id='gate', name='gateway', placeholder='Gateway')
   table
     each ssid in res.ssids
       tr
