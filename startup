@@ -1,6 +1,3 @@
 #!/bin/sh
 nohup python /home/pi/www/files/pys/thorlogger.py &
 nohup nodejs /home/pi/www/index.js &
-
-WPA_F="/home/pi/www/wpa_script"
-nohup "$WPA_F" &
