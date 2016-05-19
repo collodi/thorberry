@@ -19,14 +19,14 @@ class ThorFace:
 		for i in set(self.conf['level_pin']):
 			if not i:
 				continue
-			self.pinoffs[abs(i) - 1] = 1 if i < 0 else 0
+			self.pinoffs[abs(i)] = 1 if i < 0 else 0
 
                 face.init()
 		self.reset_pins()
 
 	def reset_pins(self):
                 for i in self.pinoffs.keys():
-                        face.digital_write(i, self.pinoffs[i])
+                        face.digital_write(i - 1, self.pinoffs[i])
 
 	def update(self, state):
 		if self.state == state:
@@ -42,7 +42,7 @@ class ThorFace:
 			self.reset_pins()
 			self.on = pin
 			if pin:
-                                face.digital_write(pin, not self.pinoffs[pin])
+                                face.digital_write(pin - 1, not self.pinoffs[pin])
 
 	def close(self):
 		pass
