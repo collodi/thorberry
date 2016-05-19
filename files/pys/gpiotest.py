@@ -1,3 +1,4 @@
+import time
 from thorgpio import ThorGPIO
 from thorface import ThorFace
 
@@ -8,10 +9,10 @@ if __name__ == '__main__':
 	index = 0
 	try:
 		while True:
-			raw_input('Waiting Input... ' + str(states[index]))
 			gpio.update(states[index])
                         face.update(states[index])
 			index = (index + 1) % len(states)
+                        time.sleep(5)
 	except:
 		gpio.close()
                 face.close()

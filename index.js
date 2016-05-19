@@ -136,6 +136,15 @@ app.all('*', function(req, res, next) {
 	}
 });
 
+// output test
+app.get('/lightest', function(req, res, next) {
+	spawn('python /home/pi/www/files/pys/gpiotest.py', { stdio: 'ignore' });
+
+	res.to = '/';
+	res.msg = '5 seconds for each stage of warning. Redirecting you to the main page.';
+	res.render('redirect', { session: sessions[sid], res: res });
+});
+
 // async serialized file filter
 var async_files = function(i, path, files, suffix, callback) {
 	fs.stat(path + files[i], function(err, stats) {

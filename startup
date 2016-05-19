@@ -1,5 +1,4 @@
 #!/bin/bash
-#/home/pi/www/wpa_restart
 /home/pi/www/auto_update
 nohup python /home/pi/www/files/pys/thorlogger.py &
 nohup nodejs /home/pi/www/index.js &
