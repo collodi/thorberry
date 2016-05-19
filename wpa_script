@@ -16,4 +16,4 @@ echo "$2" | wpa_passphrase "$1" >> "$conf_file"
 # echo -e "\tgateway $5" >> "$iface_file"
 
 # get ip
-dhclient wlan0
+dhcpcd wlan0
