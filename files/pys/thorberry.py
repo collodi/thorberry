@@ -1,5 +1,6 @@
 import requests, xmltodict, json, os
 from thorgpio import ThorGPIO
+from thorface import ThorFace
 
 class Thorberry:
 	conf_dir = '/home/pi/confs/'
@@ -12,6 +13,7 @@ class Thorberry:
 			self.conf = json.load(f)
 
 		self.gpio = ThorGPIO()
+                self.face = ThorFace()
 
 	def get(self):
 		header = { 'Host': self.conf['host'] }
@@ -31,8 +33,10 @@ class Thorberry:
 
 		# gpio
 		self.gpio.update(result['state'])
+                self.face.update(result['state'])
 
 		return result
 
 	def close(self):
 		self.gpio.close()
+                self.face.close()

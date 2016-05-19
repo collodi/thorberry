@@ -11,19 +11,19 @@ block contents
         |: 
         input(required=true, name= k, type='text', value= v)
     button(type="submit") Update
-  if res.appname == "thorgpio"
+  if res.appname == "thorgpio" || res.appname == "thorface"
     p
       |README
       br
-      |Thorberry will switch on only one GPIO per status.
+      |Thorberry will switch on only one pin per status.
       br
-      |"level_pin" corresponds to the GPIO number thorberry will toggle when the status changes.
+      |"level_pin" corresponds to the pin number thorberry will toggle when the status changes.
       br
       |Starting from "All Clear", the number corresponds to "Red Alert", then back to "All Clear".
       br
       |The top level can only have one index. e.g) 0, 1, 2, 3, 2, 1, 0 (# = levels)
       br
-      |For example, the first four GPIO numbers are satisfied when the status is climbing and equals.
+      |For example, the first four pin numbers are satisfied when the status is climbing and equals.
       br
       |The last four are satisfied when the status is declining and equals. 
       br
@@ -32,4 +32,6 @@ block contents
       |Having both signs of a number in any of the input will not result in what you want.
       br
       b
-        |*****The numbers are GPIO numbers, not the pin number. Google Raspberry PI pinouts for reference.
+        |*****ThorGPIO: The numbers are GPIO numbers, not the pin number. Google Raspberry PI pinouts for reference.
+	br
+	|*****ThorFace: The pin numbers range from 1 to 8. 1 being the first relay, 2 being the second relay, and 8 being the last LED.

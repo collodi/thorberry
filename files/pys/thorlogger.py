@@ -52,8 +52,6 @@ class Thorlogger:
 		if self.repeat:
 			time.sleep(self.conf['interval'])
 			self.timer()
-#			t = threading.Timer(self.conf['interval'], self.timer)
-#			t.start()
 
 	def write_line(self, filename, line, append):
 		if isinstance(line, list):
