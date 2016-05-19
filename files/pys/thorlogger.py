@@ -7,7 +7,8 @@ class Thorlogger:
 
 	def __enter__(self):
 		script_dir = os.path.dirname(__file__)
-		os.chdir(script_dir)
+                if (script_dir)
+			os.chdir(script_dir)
 		with open(self.conf_dir + 'thorlogger.conf') as f:
 			self.conf = json.load(f)
 
