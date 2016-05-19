@@ -9,7 +9,7 @@ echo "$2" | wpa_passphrase "$1" >> "$conf_file"
 # exec
 /sbin/wpa_supplicant -s -B -P /run/wpa_supplicant.wlan0.pid -i wlan0 -D n180211,wext -c "$conf_file"
 # set static ip
-cat /etc/network/interfaces.bak > "$iface_file"
+# cat /etc/network/interfaces.bak > "$iface_file"
 # echo "iface wlan0 inet static" >> "$iface_file"
 # echo -e "\taddress $3" >> "$iface_file"
 # echo -e "\tnetmask $4" >> "$iface_file"
