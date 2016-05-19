@@ -6,7 +6,7 @@ class ThorFace:
 
 	def __init__(self):
 		script_dir = os.path.dirname(__file__)
-                if (script_dir)
+                if script_dir:
 			os.chdir(script_dir)
 
 		self.state = 0

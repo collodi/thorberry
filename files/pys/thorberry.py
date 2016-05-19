@@ -7,7 +7,7 @@ class Thorberry:
 
 	def __init__(self):
 		script_dir = os.path.dirname(__file__)
-                if (script_dir)
+                if script_dir:
 			os.chdir(script_dir)
 
 		with open(self.conf_dir + 'thorberry.conf') as f:
