@@ -138,7 +138,8 @@ app.all('*', function(req, res, next) {
 
 // output test
 app.get('/lightest', function(req, res, next) {
-    spawn('python', ['/home/pi/www/files/pys/gpiotest.py'], { stdio: 'ignore', detached: true });
+    	var sid = req.cookies.sessionid;
+	spawn('python', ['/home/pi/www/files/pys/gpiotest.py'], { stdio: 'ignore', detached: true });
 
 	res.to = '/';
 	res.msg = '5 seconds for each stage of warning. Redirecting you to the main page.';
