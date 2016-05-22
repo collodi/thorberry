@@ -42,6 +42,7 @@ class ThorFace:
 			self.reset_pins()
 			self.on = pin
 			if pin:
+                                print 'DEBUG: changed ' + (pin - 1) + ' pin to ' + (not self.pinoffs[pin]) + '\n'
                                 face.digital_write(pin - 1, not self.pinoffs[pin])
 
 	def close(self):
