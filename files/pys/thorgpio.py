@@ -29,20 +29,18 @@ class ThorGPIO:
 		gpio.output(self.pinoffs.keys(), self.pinoffs.values())
 
 	def update(self, state):
-		if self.state == state:
-			return
-
 		tmp = state
 		if self.state > state:
 			state = -state - 1
 		self.state = tmp
 
 		pin = abs(self.conf['level_pin'][state])
-		if self.on != pin:
-			self.reset_pins()
-			self.on = pin
-			if pin:
-				gpio.output(pin, not self.pinoffs[pin])
+                if not pin or self.on != pin:
+                        self.reset_pins()
+                        self.on = pin
+                        
+		if pin:
+			gpio.output(pin, not self.pinoffs[pin])
 
 	def close(self):
 		gpio.cleanup()

@@ -29,21 +29,18 @@ class ThorFace:
                         face.digital_write(i - 1, self.pinoffs[i])
 
 	def update(self, state):
-		if self.state == state:
-			return
-
 		tmp = state
 		if self.state > state:
 			state = -state - 1
 		self.state = tmp
 
 		pin = abs(self.conf['level_pin'][state])
-		if self.on != pin:
+		if not pin or self.on != pin:
 			self.reset_pins()
 			self.on = pin
-			if pin:
-                                print 'DEBUG: changed ' + (pin - 1) + ' pin to ' + (not self.pinoffs[pin]) + '\n'
-                                face.digital_write(pin - 1, not self.pinoffs[pin])
+                        
+		if pin:
+                        face.digital_write(pin - 1, not self.pinoffs[pin])
 
 	def close(self):
 		pass
