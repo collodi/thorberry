@@ -25,7 +25,6 @@ class Thorlogger:
 
 		self.state = 0
 		self.started = False
-		self.repeat = True
 		self.timer()
 		return self
 
@@ -50,9 +49,8 @@ class Thorlogger:
 		self.state = res_dict['state']
 		# log last checked
 		self.write_line('/home/pi/last_checked.txt', json.dumps(res_dict), 'w')
-		if self.repeat:
-			time.sleep(self.conf['interval'])
-			self.timer()
+		time.sleep(self.conf['interval'])
+		self.timer()
 
 	def write_line(self, filename, line, append):
 		if isinstance(line, list):
@@ -62,7 +60,6 @@ class Thorlogger:
 
 	def __exit__(self, t, v, tb):
 		self.thor.close()
-		self.repeat = False
 
 if __name__ == '__main__':
 	while True:
@@ -72,5 +69,6 @@ if __name__ == '__main__':
 					pass
 		except KeyboardInterrupt:
 			break
-		except:
-			pass
+		except Exception as e:
+                        with open('/home/pi/thor.err', 'w') as f:
+                                f.write(e)
