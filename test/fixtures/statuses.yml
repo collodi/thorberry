@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  alert: MyString
+  ad: 1
+  di: 1.5
+  lhl: 1
+  fcc: 1
+
+two:
+  alert: MyString
+  ad: 1
+  di: 1.5
+  lhl: 1
+  fcc: 1
