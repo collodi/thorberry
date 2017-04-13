@@ -1,2 +1,9 @@
-<p>Lighting Status: <% @status.text %></p>
-
+<% if @status.nil? %>
+<p>No data available yet.</p>
+<% else %>
+<p>Lighting Status: <%= @status.alert %></p>
+<p>AD: <%= @status.ad %></p>
+<p>DI: <%= @status.di %></p>
+<p>LHL: <%= @status.lhl %></p>
+<p>FCC: <%= @status.fcc %></p>
+<% end %>
