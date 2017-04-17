@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get 'status/logs'
   get 'logs', to: 'status#logs'
 
+  post 'logs', to: 'status#fetch_logs', as: :fetch_logs
+
   root 'status#index'
 end

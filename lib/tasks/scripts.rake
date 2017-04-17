@@ -13,7 +13,9 @@ namespace :scripts do
     data[:di] = xml.xpath('//di').first.content
     data[:lhl] = xml.xpath('//lhl').first.content
     data[:fcc] = xml.xpath('//fcc').first.content
-    data.save if Status.last != data
+
+    last = Status.last
+    data.save if last != data or last.created_at + 1.hour < Time.now
   end
 
 end
