@@ -3,7 +3,7 @@ class StatusController < ApplicationController
     @status = Status.last
   end
 
-  def log
+  def logs
 
   end
 end

@@ -3,14 +3,13 @@
   <head>
     <title>Thorberry</title>
     <%= csrf_meta_tags %>
-    <!-- jquery -->
-    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <!-- materialize -->
     <%= stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css' %>
     <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js' %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <%= yield :header if content_for? :header %>
   </head>

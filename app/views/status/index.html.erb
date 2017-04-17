@@ -1,3 +1,7 @@
+<% content_for :header do %>
+<%= javascript_include_tag "refresh" %>
+<% end %>
+
 <% if @status.nil? %>
 <p>No data available yet.</p>
 <% else %>
