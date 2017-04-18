@@ -2,7 +2,12 @@
   <div class="col s10 offset-s1 m8 offset-m2">
     <%= form_for :date_range, url: fetch_logs_path do |f| %>
     
-    <p class="col s12 flow-text">View Log</p>
+    <p class="col s12 flow-text">
+      <a href="#" data-activates="slide-out" class="button-collapse btn-flat btn-floating waves-effect waves-light btn-large">
+	<i class="light-blue-text material-icons">menu</i>
+      </a>
+      View Log
+    </p>
     
     <span class="col s6">
       <%= f.label :start_date %>
