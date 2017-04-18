@@ -2,3 +2,45 @@ asgard: http://maclay.thormobile5.net/TG0000.xml
 
 worthy: thor
 unworthy: loki
+
+pin_descriptions:
+  - 3.3v
+  - 5v
+  - GPIO02 (SDA1, I2C)
+  - 5v
+  - GPIO03 (SCL1, I2C)
+  - Ground
+  - GPIO04 (GPIO_GCLK)
+  - GPIO14 (TXD0)
+  - Ground
+  - GPIO15 (RXD0)
+  - GPIO17 (GPIO_GEN0)
+  - GPIO18 (GPIO_GEN1)
+  - GPIO27 (GPIO_GEN2)
+  - Ground
+  - GPIO22 (GPIO_GEN3)
+  - GPIO23 (GPIO_GEN4)
+  - 3.3v
+  - GPIO24 (GPIO_GEN5)
+  - GPIO10 (SPI_MOSI)
+  - Ground
+  - GPIO09 (SPI_MISO)
+  - GPIO25 (GPIO_GEN6)
+  - GPIO11 (SPI_CLK)
+  - GPIO08 (SPI_CE0_N)
+  - Ground
+  - GPIO07 (SPI_CE1_N)
+  - ID_SD (I2C ID EEPROM)
+  - ID_SC (I2C ID EEPROM)
+  - GPIO05
+  - Ground
+  - GPIO06
+  - GPIO12
+  - GPIO13
+  - Ground
+  - GPIO19
+  - GPIO16
+  - GPIO26
+  - GPIO20
+  - Ground
+  - GPIO21

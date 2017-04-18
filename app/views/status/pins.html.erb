@@ -1,0 +1,23 @@
+<%= render partial: "sidenav", locals: { title: "Configure Pins" } %>
+
+<%= form_for :config_pins, url: set_pins_path do |f| %>
+<div class="col s12 m6">
+  <%= f.label :ac, "AllClear" %>
+  <%= render partial: "pinconf", locals: { name: "ac" } %>
+</div>
+<div class="col s12 m6">
+  <%= f.label :c_up, "Ascend To Caution" %>
+</div>
+<div class="col s12 m6">
+  <%= f.label :w_up, "Ascend To Warning" %>
+</div>
+<div class="col s12 m6">
+  <%= f.label :ra_up, "Ascend To RedAlert" %>
+</div>
+<div class="col s12 m6">
+  <%= f.label :w_down, "Descend To Warning" %>
+</div>
+<div class="col s12 m6">
+  <%= f.label :c_down, "Descend To Caution" %>
+</div>
+<% end %>

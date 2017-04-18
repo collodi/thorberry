@@ -1,0 +1,18 @@
+<div id="pi-board" class="col s8">
+  <div class="col s12 right">
+    <div class="pi-hole btn-floating white btn-large"></div>
+  </div>
+  <div id="pi-pins" class="col s12 right">
+    <% for i in 0...40 do %>
+    <div class="col s11 pi-pin<%= ' push-s11' if i.odd? %>">
+      <input type="checkbox" id="pin-<%= i %>" class="filled-in<%= ' reverse' if i.even? %>" />
+      <label for="pin-<%= i %>" class="col s12 <%= i.even? ? 'left' : 'right'%>-align">
+	<span><%= @descs[i] %></span>
+      </label>
+    </div>
+    <% end %>
+  </div>
+  <div class="col s12 right">
+    <div class="pi-hole btn-floating white btn-large"></div>
+  </div>
+</div>
