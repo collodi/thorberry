@@ -1,39 +1,50 @@
-<p>View Log</p>
-<%= form_for :date_range, url: fetch_logs_path do |f| %>
-<p>
-  <%= f.label :start_date %>
-  <%= f.date_field :start_date, class: "datepicker" %>
-</p>
-<p>
-  <%= f.label :end_date %>
-  <%= f.date_field :end_date, class: "datepicker" %>
-</p>
-<p>
-  <%= f.submit "Show Logs" %>
-</p>
-<% end %>
+<div class="row">
+  <div class="col s10 offset-s1 m8 offset-m2">
+    <%= form_for :date_range, url: fetch_logs_path do |f| %>
+    
+    <p class="col s12 flow-text">View Log</p>
+    
+    <span class="col s6">
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date, class: "datepicker", value: @defaults[:start_date] %>
+    </span>
+    <span class="col s6">
+      <%= f.label :end_date %>
+      <%= f.date_field :end_date, class: "datepicker", value: @defaults[:end_date] %>
+    </span>
+    <span class="col s12">
+      <button type="submit" class="waves-effect waves-light btn">Show Logs</button>
+    </span>
+    <% end %>
 
-<% unless @logs.nil? then %>
-<ul class="collection">
-  <% if @logs.length > 0 then %>
-  <% for log in @logs do %>
-  <li class="collection-item row">
-    <div class="col s6">
-      <%= log.alert %> <br />
-      <%= local_time(log.created_at) %>
-    </div>
-    <div class="col s6">
-      AD: <%= log.ad %> <br />
-      DI: <%= log.di %> <br />
-      LHL: <%= log.lhl %> <br />
-      FCC: <%= log.fcc %>
-    </div>
-  </li>
-  <% end %>
-  <% else %>
-  <li class="collection-item">
-    No log found.
-  </li>
-  <% end %>
-</ul>
-<% end %>
+    <p class="col s12">
+      <% unless @logs.nil? then %>
+      <ul class="collection">
+	<% if @logs.length != 0 then %>
+	<% for log in @logs do %>
+	<li class="collection-item row">
+	  <div class="col s6">
+	    <%= log.alert %> <br />
+	    <%= local_time(log.created_at) %>
+	  </div>
+	  <div class="col s3">
+	    AD: <%= log.ad %> <br />
+	    DI: <%= log.di %>
+	  </div>
+	  <div class="col s3">
+	    LHL: <%= log.lhl %> <br />
+	    FCC: <%= log.fcc %>
+	  </div>
+	</li>
+	<% end %>
+	<% else %>
+	<li class="collection-item">
+	  No log found.
+	</li>
+	<% end %>
+      </ul>
+      <% end %>
+    </p>
+    
+  </div>
+</div>

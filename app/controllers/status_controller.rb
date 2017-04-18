@@ -6,11 +6,13 @@ class StatusController < ApplicationController
   end
 
   def logs
+    @defaults = { start_date: Time.now.strftime("%F"), end_date: Time.now.strftime("%F") }
   end
 
   def fetch_logs
     dates = params.require(:date_range).permit(:start_date, :end_date)
     @logs = Status.where(created_at: Time.parse(dates[:start_date])...(Time.parse(dates[:end_date]) + 1.day))
+    @defaults = dates
 
     render :logs
   end
