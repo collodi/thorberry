@@ -5,7 +5,10 @@
 checker = ->
         setTimeout ( ->
                 return unless $('.status.index').length > 0
-                if !document.hidden then Turbolinks.visit location.toString() else checker()
+                if !document.hidden and $('#sidenav-overlay').length == 0
+                        Turbolinks.visit location.toString()
+                else
+                        checker()
                 return
         ), 5000
 
