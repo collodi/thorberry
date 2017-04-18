@@ -1,16 +1,18 @@
-<h1>Thorberry</h1>
+<blockquote class="flow-text">
+  Thorberry
+</blockquote>
 <%= form_for :login, url: auth_path do |f| %>
-<p>
+<span class="col s12 m6">
   <%= f.label "Username:" %>
   <%= f.text_field :user %>
-</p>
-<p>
+</span>
+<span class="col s12 m6">
   <%= f.label "Password:" %>
-  <%= f.text_field :pwd %>
-</p>
-<p>
-  <%= f.submit "Log In" %>
-</p>
+  <%= f.password_field :pwd %>
+</span>
+<span class="col s12">
+  <button type="submit" class="right waves-effect waves-light btn">Log In</button>
+</span>
 <% end %>
 
 <% if flash[:notice] then %>

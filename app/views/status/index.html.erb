@@ -2,20 +2,24 @@
 <%= javascript_include_tag "features" %>
 <% end %>
 
-<%= render "sidenav" %>
+<%= render partial: "sidenav", locals: { title: "View Status" } %>
 
-<p>
-  <a href="#" data-activates="slide-out" class="button-collapse">
-    <i class="material-icons">menu</i>
-  </a>
-</p>
-
-<% if @status.nil? %>
-<p>No data available yet.</p>
-<% else %>
-<p>Lighting Status: <%= @status.alert %></p>
-<p>AD: <%= @status.ad %></p>
-<p>DI: <%= @status.di %></p>
-<p>LHL: <%= @status.lhl %></p>
-<p>FCC: <%= @status.fcc %></p>
-<% end %>
+<div class="col s12 center flow-text">
+  <% if @status.nil? %>
+  <blockquote class="col s12">
+    No data available yet.
+  </blockquote>
+  <% else %>
+  <blockquote class="col s6">
+    Lighting Status: <%= @status.alert %>
+  </blockquote>
+  <p class="col s3">
+    AD: <%= @status.ad %> <br />
+    DI: <%= @status.di %>
+  </p>
+  <p class="col s3">
+    LHL: <%= @status.lhl %> <br />
+    FCC: <%= @status.fcc %>
+  </p>
+  <% end %>
+</div>
