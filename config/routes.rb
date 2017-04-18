@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'login/index'
+  get 'login', to: 'login#index'
+
+  post 'login', to: 'login#auth', as: :auth
+
+  get 'logout', to: 'status#logout'
+
   get 'status/index'
   get 'status', to: 'status#index'
 
@@ -7,5 +14,5 @@ Rails.application.routes.draw do
 
   post 'logs', to: 'status#fetch_logs', as: :fetch_logs
 
-  root 'status#index'
+  root 'login#index'
 end
