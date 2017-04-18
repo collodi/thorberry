@@ -1,2 +1,2 @@
-$(document).on 'ready', =>
+$(document).on 'ready turbolinks:load', ->
         $('.button-collapse').sideNav()

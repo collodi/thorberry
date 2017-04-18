@@ -15,7 +15,7 @@
     <%= yield :header if content_for? :header %>
   </head>
 
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
     <div class="row">
       <div class="col s10 offset-s1 m8 offset-m2">
 	<%= yield %>
