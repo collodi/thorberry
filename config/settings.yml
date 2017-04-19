@@ -3,44 +3,57 @@ asgard: http://maclay.thormobile5.net/TG0000.xml
 worthy: thor
 unworthy: loki
 
+default_module: gpio
 pin_descriptions:
-  - 3.3v
-  - 5v
-  - GPIO02
-  - 5v
-  - GPIO03
-  - Ground
-  - GPIO04
-  - GPIO14
-  - Ground
-  - GPIO15
-  - GPIO17
-  - GPIO18
-  - GPIO27
-  - Ground
-  - GPIO22
-  - GPIO23
-  - 3.3v
-  - GPIO24
-  - GPIO10
-  - Ground
-  - GPIO09
-  - GPIO25
-  - GPIO11
-  - GPIO08
-  - Ground
-  - GPIO07
-  - ID_SD
-  - ID_SC
-  - GPIO05
-  - Ground
-  - GPIO06
-  - GPIO12
-  - GPIO13
-  - Ground
-  - GPIO19
-  - GPIO16
-  - GPIO26
-  - GPIO20
-  - Ground
-  - GPIO21
+  gpio:
+    - 3.3v
+    - 5v
+    - GPIO02
+    - 5v
+    - GPIO03
+    - Ground
+    - GPIO04
+    - GPIO14
+    - Ground
+    - GPIO15
+    - GPIO17
+    - GPIO18
+    - GPIO27
+    - Ground
+    - GPIO22
+    - GPIO23
+    - 3.3v
+    - GPIO24
+    - GPIO10
+    - Ground
+    - GPIO09
+    - GPIO25
+    - GPIO11
+    - GPIO08
+    - Ground
+    - GPIO07
+    - ID_SD
+    - ID_SC
+    - GPIO05
+    - Ground
+    - GPIO06
+    - GPIO12
+    - GPIO13
+    - Ground
+    - GPIO19
+    - GPIO16
+    - GPIO26
+    - GPIO20
+    - Ground
+    - GPIO21
+  piface:
+    - Relay 1 (Closer To Output Pins)
+    - Relay 2 (Farther From Output Pins)
+    - Output 0 (Closest To 5V)
+    - Output 1
+    - Output 2
+    - Output 3
+    - Output 4
+    - Output 5
+    - Output 6
+    - Output 7

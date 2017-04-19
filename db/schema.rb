@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419102650) do
+ActiveRecord::Schema.define(version: 20170419120034) do
 
   create_table "errors", force: :cascade do |t|
     t.string   "msg"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170419102650) do
     t.string   "pinval"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "module"
   end
 
   create_table "statuses", force: :cascade do |t|
