@@ -1,5 +1,6 @@
 class LoginController < ApplicationController
   def index
+    redirect_to status_path unless session[:priv].nil?
   end
 
   def auth
