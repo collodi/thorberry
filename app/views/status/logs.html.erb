@@ -1,6 +1,6 @@
 <%= render partial: "/layouts/sidenav", locals: { title: "View Log" } %>
 
-<%= form_for :date_range, url: fetch_logs_path do |f| %>
+<%= form_for :date_range, url: fetch_logs_path, html: { id: "log-form" } do |f| %>
 <span class="col s12 m6">
   <%= f.label :start_date %>
   <%= f.date_field :start_date, class: "datepicker", value: @defaults[:start_date] %>
@@ -10,8 +10,10 @@
   <%= f.date_field :end_date, class: "datepicker", value: @defaults[:end_date] %>
 </span>
 <span class="col s12">
-  <button type="submit" class="right waves-effect waves-light btn">Show Logs</button>
+  <button data-action="<%= fetch_logs_path %>" class="log-submit right waves-effect waves-light btn">Show Logs</button>
+  <button data-action="<%= save_logs_path %>" class="log-submit waves-effect waves-light btn">Search &amp; Download</button>
 </span>
+
 <% end %>
 
 <p class="col s12">
