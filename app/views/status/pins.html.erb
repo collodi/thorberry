@@ -1,9 +1,11 @@
 <%= render partial: "sidenav", locals: { title: "Configure Pins" } %>
 
-<%= form_for :config_pins, url: set_pins_path do |f| %>
 <div class="col s12 m6">
+  <%= form_for :config_pins, url: set_pins_path do |f| %>
   <%= f.label :ac, "AllClear" %>
-  <%= render partial: "pinconf", locals: { name: "ac" } %>
+  <%= render partial: "pinconf", locals: { f: f } %>
+  <%= f.hidden_field :stage, value: :ac %>
+  <%= f.submit "Update" %>
 </div>
 <div class="col s12 m6">
   <%= f.label :c_up, "Ascend To Caution" %>

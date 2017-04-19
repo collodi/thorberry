@@ -1,5 +1,5 @@
 class StatusController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @status = Status.last
@@ -27,6 +27,6 @@ class StatusController < ApplicationController
   end
 
   def set_pins
-
+    
   end
 end

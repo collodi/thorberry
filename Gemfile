@@ -57,3 +57,5 @@ gem 'config'
 gem 'nokogiri' # html/xml parser
 gem 'http'
 gem 'local_time'
+gem 'materialize-sass'
+gem 'material_icons'
