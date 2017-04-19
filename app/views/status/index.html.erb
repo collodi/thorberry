@@ -1,21 +1,29 @@
 <%= render partial: "/layouts/sidenav", locals: { title: "View Status" } %>
 
-<div class="col s12 center flow-text">
-  <% if @status.nil? %>
-  <blockquote class="col s12">
-    No data available yet.
-  </blockquote>
-  <% else %>
-  <blockquote class="col s6">
-    Lighting Status: <%= @status.alert %>
-  </blockquote>
-  <p class="col s3">
-    AD: <%= @status.ad %> <br />
-    DI: <%= @status.di %>
-  </p>
-  <p class="col s3">
-    LHL: <%= @status.lhl %> <br />
-    FCC: <%= @status.fcc %>
-  </p>
-  <% end %>
+<div class="row">
+  <div class="col s12 center flow-text">
+    <% if @status.nil? %>
+    <blockquote class="col s12">
+      No data available yet.
+    </blockquote>
+    <% else %>
+    <blockquote class="col s6">
+      Lighting Status: <%= @status.alert %>
+    </blockquote>
+    <p class="col s3">
+      AD: <%= @status.ad %> <br />
+      DI: <%= @status.di %>
+    </p>
+    <p class="col s3">
+      LHL: <%= @status.lhl %> <br />
+      FCC: <%= @status.fcc %>
+    </p>
+    <% end %>
+  </div>
 </div>
+
+<% if flash[:notice] then %>
+<blockquote class="flow-text">
+  <%= flash[:notice] %>
+</blockquote>
+<% end %>

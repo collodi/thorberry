@@ -7,7 +7,7 @@ class LoginController < ApplicationController
     u = params.require(:login).permit(:user, :pwd)
     r = Login.find_by(u)
     if r.nil? then
-      redirect_to login_path, :notice => 'Wrong credentials.'
+      redirect_to login_path, notice: 'Wrong credentials.'
     else
       session[:priv] = r.priv
       redirect_to status_path
