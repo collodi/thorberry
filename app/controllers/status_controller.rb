@@ -21,12 +21,4 @@ class StatusController < ApplicationController
     session.delete(:priv)
     redirect_to login_path
   end
-
-  def pins
-    @descs = Settings.pin_descriptions
-  end
-
-  def set_pins
-    
-  end
 end

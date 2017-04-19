@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pins/index'
+
   get 'login', to: 'login#index'
   post 'login', to: 'login#auth', as: :auth
 
@@ -9,8 +11,9 @@ Rails.application.routes.draw do
   get 'logs', to: 'status#logs'
   post 'logs', to: 'status#fetch_logs', as: :fetch_logs
 
-  get 'pins', to: 'status#pins'
-  post 'pins', to: 'status#set_pins', as: :set_pins
+  get 'pins', to: 'pins#index'
+  get 'pins/:stage/:path', to: 'pins#show'
+  post 'pins', to: 'pins#set_pins', as: :set_pins
 
   root 'login#index'
 end

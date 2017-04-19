@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   def check_priv!
     unless session[:priv] then
-      redirect_to status_path, notice: 'You are not worthy enough.'
+      redirect_to status_path, notice: 'You are not worthy.'
     end
   end
 end

@@ -1,0 +1,35 @@
+<%= render partial: "/layouts/sidenav", locals: { title: "Configure Pins: #{@stage} (#{@path})" } %>
+
+<%= form_for :config_pins, url: set_pins_path do |f| %>
+<div id="pi-container" class="col s12 m8">
+  <div class="col s12 center">
+    <div class="pi-hole btn-floating btn-large white"></div>
+  </div>
+  
+  <div id="pi-board" class="col s7"></div>
+  <div class="col s12">
+    <%= f.fields_for :pinval do |p| %>
+    <% for i in 0...40 do %>
+    <div class="col s6">
+      <%= p.check_box nil, { id: "pin#{i}", class: "filled-in" + (if i.even? then " reverse" else "" end), disabled: !@pins[i].starts_with?("GPIO"), checked: @pinval.include?(i.to_s) }, i, false %>
+      <label for="pin<%= i %>" class="pi-pin col s12 <%= i.even? ? 'left' : 'right'%>-align">
+	<%= @pins[i] %>
+      </label>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+
+  <div class="col s12 center">
+    <div class="pi-hole btn-floating btn-large white"></div>
+  </div>
+</div>
+<%= f.hidden_field :stage, value: @stage %>
+<%= f.hidden_field :path, value: @path %>
+<p>
+  <%= f.submit "Save Configuration", class: "btn waves-effect waves-light" %>
+</p>
+<% end %>
+<p>
+  <%= link_to "Go Back", pins_path, class: "btn waves-effect waves-light" %>
+</p>

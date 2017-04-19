@@ -1,0 +1,46 @@
+<%= render partial: "/layouts/sidenav", locals: { title: "Configure Pins" } %>
+
+<ul class="collection">
+  <li class="collection-item">
+    AllClear
+    <a href="/pins/AllClear/All" class="secondary-content">
+      <i class="material-icons left">settings</i>
+    </a>
+  </li>
+  <li class="collection-item">
+    Ascend To Caution
+    <a href="/pins/Caution/Ascend" class="secondary-content">
+      <i class="material-icons left">settings</i>
+    </a>
+  </li>
+  <li class="collection-item">
+    Ascend To Warning
+    <a href="/pins/Warning/Ascend" class="secondary-content">
+      <i class="material-icons left">settings</i>
+    </a>
+  </li>
+  <li class="collection-item">
+    Ascend To RedAlert
+    <a href="/pins/RedAlert/Ascend" class="secondary-content">
+      <i class="material-icons left">settings</i>
+    </a>
+  </li>
+  <li class="collection-item">
+    Descend To Warning
+    <a href="/pins/Warning/Descend" class="secondary-content">
+      <i class="material-icons left">settings</i>
+    </a>
+  </li>
+  <li class="collection-item">
+    Descend To Caution
+    <a href="/pins/Caution/Descend" class="secondary-content">
+      <i class="material-icons left">settings</i>
+    </a>
+  </li>
+</ul>
+
+<% if flash[:notice] then %>
+<blockquote class="flow-text">
+  <%= flash[:notice] %>
+</blockquote>
+<% end %>
