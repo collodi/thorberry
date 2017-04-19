@@ -1,23 +1,28 @@
 <blockquote class="flow-text">
   Thorberry
 </blockquote>
-<%= form_for :login, url: auth_path do |f| %>
-<span class="col s12 m6">
-  <%= f.label "Username:" %>
-  <%= f.text_field :user %>
-</span>
-<span class="col s12 m6">
-  <%= f.label "Password:" %>
-  <%= f.password_field :pwd %>
-</span>
-<span class="col s12">
-  <button type="submit" class="right waves-effect waves-light btn">Log In</button>
-</span>
-<% end %>
+
+<div class="row">
+  <%= form_for :login, url: auth_path do |f| %>
+  <span class="col s12 m6">
+    <%= f.label "Username:" %>
+    <%= f.text_field :user %>
+  </span>
+  <span class="col s12 m6">
+    <%= f.label "Password:" %>
+    <%= f.password_field :pwd %>
+  </span>
+  <span class="col s12">
+    <button type="submit" class="right waves-effect waves-light btn">Log In</button>
+  </span>
+  <% end %>
+</div>
 
 <% if flash[:notice] then %>
 <blockquote class="flow-text">
   <%= flash[:notice] %>
 </blockquote>
 <% end %>
+
+
   
