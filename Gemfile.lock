@@ -109,6 +109,8 @@ GEM
     pi_piper (2.0.0)
       eventmachine (= 1.0.9)
       ffi
+    piface (0.4.1)
+      ffi (~> 1.7)
     public_suffix (2.0.5)
     puma (3.8.2)
     rack (2.0.1)
@@ -201,6 +203,7 @@ DEPENDENCIES
   materialize-sass
   nokogiri
   pi_piper
+  piface
   puma (~> 3.0)
   rails (~> 5.0.2)
   rufus-scheduler

@@ -3,6 +3,15 @@ asgard: http://maclay.thormobile5.net/TG0000.xml
 worthy: thor
 unworthy: loki
 
+status_checkpoints:
+  - AllClear
+  - RedAlert
+status_ladder:
+  - AllClear
+  - Caution
+  - Warning
+  - RedAlert
+
 default_module: gpio
 pin_descriptions:
   gpio:
@@ -47,13 +56,11 @@ pin_descriptions:
     - Ground
     - GPIO21
   piface:
-    - Relay 1 (Closer To Output Pins)
-    - Relay 2 (Farther From Output Pins)
-    - Output 0 (Closest To 5V)
-    - Output 1
+    - Output 0 (Relay 0 if JP6 bridged)
+    - Output 1 (Relay 1 if JP5 bridged)
     - Output 2
     - Output 3
     - Output 4
     - Output 5
     - Output 6
-    - Output 7
+    - Output 7 (Farthest from 5V)

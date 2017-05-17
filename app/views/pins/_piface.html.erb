@@ -1,15 +1,15 @@
 <%= form_for :config_pins, url: set_pins_path do |f| %>
 <div class="col s12 m8">
   <%= f.fields_for :pinval do |p| %>
-  <% for i in 0...10 do %>
+  <% for i in 0...8 do %>
   <div class="section">
     <div class="col s12 valign-wrapper">
       <div class="switch col s4">
 	<label class="right">
-	  NC
+	  NC/LO
 	  <%= p.check_box nil, { class: "filled-in", checked: (@pinval.include?(i.to_s) and @module == 'piface') }, i, false %>
 	  <span class="lever"></span>
-	  NO
+	  NO/HI
 	</label>
       </div>
       <span class="col s8"><%= @pins['piface'][i] %></span>
@@ -19,7 +19,7 @@
   <% end %>
 </div>
 <%= f.hidden_field :stage, value: @stage %>
-<%= f.hidden_field :path, value: @path %>
+<%= f.hidden_field :from, value: @from %>
 <%= f.hidden_field :module, value: "piface" %>
 <p>
   <button type="submit" class="btn waves-effect waves-light right">Save Configuration</button>

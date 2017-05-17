@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post 'logs/download', to: 'status#save_logs', as: :save_logs
 
   get 'pins', to: 'pins#index'
-  get 'pins/:stage/:path', to: 'pins#show'
+  get 'pins/:stage/:from', to: 'pins#show'
   post 'pins', to: 'pins#set_pins', as: :set_pins
 
   root 'login#index'
