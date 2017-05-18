@@ -1,5 +1,4 @@
-# thorberry
+# thorberry 2
 
-Lightning Watch System with a Raspberry Pi
-
-# v2.0 (Re-write with Rails)
+# Notes
+get: http://maclay.thormobile5.net/TG0000.xml

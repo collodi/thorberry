@@ -1,0 +1,30 @@
+<%= render partial: "/layouts/sidenav", locals: { title: "Configure Pins: #{@stage} (From #{@from})" } %>
+
+<div class="row">
+  <div class="col right">
+    <%= link_to "Go Back", pins_path, class: "btn waves-effect waves-light" %>
+  </div>
+  <div class="switch col right">
+    <label>
+      GPIO
+      <input id="pick_module" type="checkbox" <%= 'checked' if @module == 'piface' %>>
+      <span class="lever"></span>
+      PiFace
+    </label>
+  </div>
+</div>
+<div class="divider"></div>
+
+<div id="gpio">
+  <%= render partial: "gpio" %>
+</div>
+<div id="piface">
+  <%= render partial: "piface" %>
+</div>
+
+<script>
+  $("#gpio").hide();
+  $("#piface").hide();
+  
+  $("#<%= @module %>").show();
+</script>

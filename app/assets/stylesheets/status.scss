@@ -1,0 +1,50 @@
+// Place all the styles related to the Status controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#pi-container {
+    position: relative;
+}
+
+#pi-board {
+    position: absolute;
+    height: 100%;
+
+    background: #5F8645;
+
+    border-top-right-radius: 45px;
+    border-bottom-right-radius: 45px;
+    
+    text-align: right;
+}
+
+.pi-hole {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    border: 10px solid #F7DF84 !important;
+    pointer-events: none;
+}
+
+.pi-pin {
+    color: black;
+}
+
+.pi-pin:hover {
+    @extend .light-blue, .accent-1;
+}
+
+[type="checkbox"].filled-in+label:before,
+[type="checkbox"].filled-in+label:after {
+    top: 2px !important;
+}
+
+[type="checkbox"].reverse+label {
+    padding-left: 0px !important;
+    padding-right: 35px !important;
+}
+
+[type="checkbox"].reverse+label:before,
+[type="checkbox"].reverse+label:after {
+    left: calc(100% - 20px) !important;
+}
