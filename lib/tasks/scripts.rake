@@ -1,11 +1,12 @@
 begin
   require 'pi_piper'
-rescue LoadError
+rescue
   puts 'warning: pi_piper gem is not loaded (not on RPi?)'
 end
+
 begin
   require 'piface'
-rescue LoadError
+rescue
   puts 'warning: piface is not loaded (not on RPi?)'
 end
 
@@ -44,7 +45,7 @@ namespace :scripts do
     # set pins
     if pinconf.module == 'gpio' then
       set_gpio(pinconf.pinval)
-    else if pinconf.module == 'piface' then
+    elsif pinconf.module == 'piface' then
       set_piface(pinconf.pinval)
     end
   end
@@ -58,7 +59,7 @@ def set_gpio(pins)
   gpios.each_index do |i|
     next unless gpios[i].start_with?('GPIO')
 
-    pin = PiPiper::Pin.new(pin: gpios[i][4..].to_i, direction: out)
+    pin = PiPiper::Pin.new(pin: gpios[i][4..-1].to_i, direction: out)
     if pins.includes?(i) then pin.on else pin.off end
   end
 end
