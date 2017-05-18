@@ -1,6 +1,13 @@
-require 'http'
-require 'pi_piper'
-require 'piface'
+begin
+  require 'pi_piper'
+rescue LoadError
+  puts 'warning: pi_piper gem is not loaded (not on RPi?)'
+end
+begin
+  require 'piface'
+rescue LoadError
+  puts 'warning: piface is not loaded (not on RPi?)'
+end
 
 namespace :scripts do
   desc "fetches lightning status information"

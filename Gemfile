@@ -59,5 +59,6 @@ gem 'http'
 gem 'local_time'
 gem 'materialize-sass'
 gem 'material_icons'
-gem 'pi_piper'
-gem 'piface'
+gem 'pi_piper', require: false
+gem 'piface', require: false
+gem 'git'
