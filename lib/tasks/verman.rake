@@ -8,6 +8,7 @@ namespace :verman do
       repo.pull
 
       # restart puma
+      File.delete Rails.root.join('tmp', 'pid', 'server.pid')
       File.open(Rails.root.join('tmp', 'restart.txt'), 'w') {}
     end
   end
