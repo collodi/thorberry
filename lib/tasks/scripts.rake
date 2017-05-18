@@ -34,14 +34,14 @@ namespace :scripts do
     curr = Status.last
     from = 'All'
     # get from
-    nomems = Pin.find_by(from: 'All').stage
+    nomems = Pin.where(from: 'All').map { |i| i.stage }
     unless nomems.include? curr.alert then
       tmp = Status.where(alert: Settings.status_checkpoints).last
       from = tmp.alert unless tmp.nil?
     end
     # get pin value configuration
     pinconf = Pin.find_by(stage: curr.alert, from: from)
-    return if pinconf.nil?
+    next if pinconf.nil?
     # set pins
     if pinconf.module == 'gpio' then
       set_gpio(pinconf.pinval)
