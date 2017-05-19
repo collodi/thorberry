@@ -53,8 +53,6 @@ namespace :scripts do
 end
 
 def set_gpio(pins)
-  include PiPiper
-
   gpios = Settings.pin_descriptions.gpio
   gpios.each_index do |i|
     next unless gpios[i].start_with?('GPIO')
