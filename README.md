@@ -11,7 +11,7 @@ Lightning watch system using
  - `sudo apt-get update && sudo apt-get upgrade` 
  - [enable spi](https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md)
  - make sure the user `pi` is in groups `gpio` and `spi`
- - install `git`, `nodejs`, `nginx`, and `ruby` (>= 2.x) [(Ruby Installation by Ray Hightower)](http://rayhightower.com/blog/2012/12/03/ruby-on-raspberry-pi/)
+ - install `git`, `nodejs`, `nginx`, and `ruby` (>= 2.x) [(Ruby With RVM)](https://rvm.io/)
  - install `bundle` and `rails` gems
  - git clone thorberry
  - run `bundle install` and `bundle exec rake db:migrate db:seed` inside the cloned directory
