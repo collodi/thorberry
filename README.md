@@ -6,17 +6,20 @@ Lightning watch system using
  - [pi_piper gem](https://github.com/jwhitehorn/pi_piper)
  - [piface gem](https://github.com/blakejakopovic/piface)
 
-## Setting Up thorberry On RPi
- - connect to the Internet
+## Setting Up thorberry on RPi
+The setup script is included in `setup/`.
+An Internet connection is needed to run the script.
+
+Here are the things that the script does:
  - `sudo apt-get update && sudo apt-get upgrade` 
  - [enable spi](https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md)
- - make sure the user `pi` is in groups `gpio` and `spi`
+ - add the user `pi` to groups `gpio` and `spi`
  - install `git`, `nodejs`, `nginx`, and `ruby` (>= 2.x) [(Ruby With RVM)](https://rvm.io/)
  - install `bundle` and `rails` gems
  - git clone thorberry
  - run `bundle install` and `bundle exec rake db:migrate db:seed` inside the cloned directory
  - [edit pi_piper](#pi_piper-Issues)
- - [install & set up Nginx](#Setting-Up-Nginx)
+ - [set up Nginx](#Setting-Up-Nginx)
  - [set up systemd](#Setting-Up-Systemd)
  
 ## Setting Up Nginx
