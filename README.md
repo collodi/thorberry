@@ -3,6 +3,8 @@ Lightning watch system using
  - RPi
  - Ruby on Rails
  - [Thorguard](http://thorguard.com/)
+ - [pi_piper gem](https://github.com/jwhitehorn/pi_piper)
+ - [piface gem](https://github.com/blakejakopovic/piface)
 
 ## Setting Up thorberry On RPi
  - connect to the Internet
@@ -79,6 +81,10 @@ My workaround is to tweak the pi_piper's export method. The final export method 
       @pins << pin
     end
 Keep in mind that this is a workaround, not a fix.
+
+## piface gem output pin number
+piface's README says that the relays can be accessed with pin 1 and 2.
+The correct pin numbers are 0 and 1. So the output pin numbers are from 0 to 7.
 
 ## Default Logins
 Administrator: `thor` / `sonofodin`  
