@@ -10,6 +10,10 @@ class GpioTest < ActionDispatch::IntegrationTest
     [8, 9]
   ]
 
+  def self.test_order
+    :alpha
+  end
+
   test "gpio setup" do
     Pin.delete_all
     set_gpio_pins('AllClear', 'All', pinvals[0])
