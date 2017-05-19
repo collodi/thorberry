@@ -57,7 +57,7 @@ def set_gpio(pins)
   gpios.each_index do |i|
     next unless gpios[i].start_with?('GPIO')
 
-    pin = PiPiper::Pin.new(pin: gpios[i][4..-1].to_i, direction: out)
+    pin = PiPiper::Pin.new(pin: gpios[i][4..-1].to_i, direction: :out)
     if pins.includes?(i) then pin.on else pin.off end
   end
 end
