@@ -52,9 +52,9 @@ An example configuration file looks like this:
     }
 You will have to disable the default server on 80.
 
-## piface gem output pin number
+## piface Gem Output Pin Numbering
 piface's README says that the relays can be accessed with pin 1 and 2.
-The correct pin numbers are 0 and 1. So the output pin numbers are from 0 to 7.
+However, the correct pin numbers are 0 and 1 for the relays.
 
 ## Setting Up Systemd
 Here is an example systemd file.
