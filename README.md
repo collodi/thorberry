@@ -81,7 +81,7 @@ My workaround is to tweak the pi_piper's export method. The final export method 
 Keep in mind that this is a workaround, not a fix.
 
 ## Default Logins
-Administrator: `thor`/`sonofodin`
-Guest: `loki`/`notsonofodin`
+Administrator: `thor` / `sonofodin`  
+Guest: `loki` / `notsonofodin`
 
-This information can be changed in `db/seeds.rb'.
+This information can be changed in `db/seeds.rb`.
