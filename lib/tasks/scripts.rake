@@ -58,13 +58,13 @@ def set_gpio(pins)
     next unless gpios[i].start_with?('GPIO')
 
     pin = PiPiper::Pin.new(pin: gpios[i][4..-1].to_i, direction: :out)
-    if pins.includes?(i) then pin.on else pin.off end
+    if pins.include?(i) then pin.on else pin.off end
   end
 end
 
 def set_piface(pins)
   faces = Settings.pin_descriptions.piface
   faces.each_index do |i|
-    Piface.write (i + 1), pins.includes?(i)
+    Piface.write (i + 1), pins.include?(i)
   end
 end
