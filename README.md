@@ -39,3 +39,22 @@ An example configuration file looks like this:
             proxy_pass http://thorberry;
 	       }
     }
+
+## pi_piper "/dev/mem: Permission denied" fix
+The solution is to replace `libbcm2835.so` in `/path/to/gems/pi_piper-2.0.0/lib/pi_piper/`.
+The replacement file is provided in the repo.
+
+## pi_piper "Permission Denied @ rb_sysopen" workaround
+The problem turned out to be some kind of a race condition between the script and the file creation.
+It seemed to have only happened to me, but I was getting the error every single time.
+Right after the GPIO pins are exported, the files in the newly created directory are not accessible by the `gpio` group.
+
+For now, I applied a cheap workaround.
+
+    # In /path/to/gems/pi_piper-2.0.0/lib/pi_piper/bcm2835.rb
+    
+    def self.export(pin)
+      File.write('/sys/class/gpio/export', pin)
+      sleep 0.1 # to prevent race condition that gives EACCESS
+      @pins << pin unless @pins.include?(pin)
+    end
