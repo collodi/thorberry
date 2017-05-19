@@ -10,6 +10,7 @@ Lightning watch system using RPi and Ruby on Rails
  - git clone thorberry
  - run `bundle install` and `bundle exec rake db:migrate db:seed` inside the cloned directory
  - [install & set up Nginx](#nginx-setup)
+ - [edit pi_piper](#export-ebusy)
  
 ## Setting Up Nginx <a name="nginx-setup"></a>
 An example configuration file looks like this:
@@ -58,3 +59,20 @@ For now, I applied a cheap workaround.
       sleep 0.1 # to prevent race condition that gives EACCESS
       @pins << pin unless @pins.include?(pin)
     end
+    
+## pi_piper "/sys/class/gpio/export EBUSY" workaround
+The problem arises because I cannot think of a good way to keep the GPIO pin instances alive.
+When the PiPiper::Pin.new is called on a pin that is already exported, the EBUSY error occurs.
+
+My workaround is to tweak the pi_piper's export method. The final export method is shown below. 
+
+    # In /path/to/gems/pi_piper-2.0.0/lib/pi_piper/bcm2835.rb
+    
+    def self.export(pin)
+      return if @pins.include?(pin)
+      
+      File.write('/sys/class/gpio/export', pin)
+      sleep 0.1 # to prevent race condition that gives EACCESS
+      @pins << pin
+    end
+Keep in mind that this is a workaround, not a fix.
