@@ -11,6 +11,8 @@ class PifaceTest < ActionDispatch::IntegrationTest
   ]
 
   test "piface" do
+    Thorberry::Application.load_tasks
+
     Pin.delete_all
     set_piface_pins('AllClear', 'All', pinvals[0])
     set_piface_pins('Caution', 'AllClear', pinvals[1])
