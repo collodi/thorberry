@@ -19,7 +19,8 @@ Lightning watch system using
  - [install & set up Nginx](#nginx-setup)
  - [set up systemd](#systemd-setup)
  
-## Setting Up Nginx <a name="nginx-setup"></a>
+<a name="nginx-setup"></a>
+## Setting Up Nginx
 An example configuration file looks like this:
 
     upstream thorberry {
@@ -51,7 +52,7 @@ You will have to disable the default server on 80.
 
 ## pi_piper "/dev/mem: Permission denied" fix
 The solution is to replace `libbcm2835.so` in `/path/to/gems/pi_piper-2.0.0/lib/pi_piper/`.
-The replacement file is provided in the repo.
+The replacement file is provided in `setup/`.
 
 ## pi_piper "Permission Denied @ rb_sysopen" workaround
 The problem turned out to be some kind of a race condition between the script and the file creation.
@@ -68,7 +69,8 @@ For now, I applied a cheap workaround.
       @pins << pin unless @pins.include?(pin)
     end
     
-## pi_piper "/sys/class/gpio/export EBUSY" workaround <a name="export-ebusy"></a>
+<a name="export-ebusy"></a>
+## pi_piper "/sys/class/gpio/export EBUSY" workaround
 The problem arises because I cannot think of a good way to keep the GPIO pin instances alive.
 When the PiPiper::Pin.new is called on a pin that is already exported, the EBUSY error occurs.
 
@@ -89,7 +91,8 @@ Keep in mind that this is a workaround, not a fix.
 piface's README says that the relays can be accessed with pin 1 and 2.
 The correct pin numbers are 0 and 1. So the output pin numbers are from 0 to 7.
 
-## Setting Up Systemd <a name="systemd-setup"></a>
+<a name="systemd-setup"></a>
+## Setting Up Systemd
 Here is an example systemd file.
 
     # /etc/systemd/system/thorberry.service
