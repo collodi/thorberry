@@ -6,6 +6,7 @@ unworthy: loki
 status_checkpoints:
   - AllClear
   - RedAlert
+
 status_ladder:
   - AllClear
   - Caution
