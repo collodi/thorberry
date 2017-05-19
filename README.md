@@ -47,6 +47,7 @@ An example configuration file looks like this:
             proxy_pass http://thorberry;
 	       }
     }
+You will have to disable the default server on 80.
 
 ## pi_piper "/dev/mem: Permission denied" fix
 The solution is to replace `libbcm2835.so` in `/path/to/gems/pi_piper-2.0.0/lib/pi_piper/`.
