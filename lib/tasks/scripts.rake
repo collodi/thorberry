@@ -65,6 +65,6 @@ end
 def set_piface(pins)
   faces = Settings.pin_descriptions.piface
   faces.each_index do |i|
-    Piface.write (i + 1), (pins.include?(i) ? 1 : 0)
+    Piface.write i, (pins.include?(i) ? 1 : 0)
   end
 end
