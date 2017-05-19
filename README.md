@@ -1,5 +1,8 @@
 # thorberry
-Lightning watch system using RPi and Ruby on Rails
+Lightning watch system using 
+ - RPi
+ - Ruby on Rails
+ - [Thorguard](http://thorguard.com/)
 
 ## Setting Up thorberry On RPi
  - connect to the Internet
@@ -76,3 +79,9 @@ My workaround is to tweak the pi_piper's export method. The final export method 
       @pins << pin
     end
 Keep in mind that this is a workaround, not a fix.
+
+## Default Logins
+Administrator: `thor`/`sonofodin`
+Guest: `loki`/`notsonofodin`
+
+This information can be changed in `db/seeds.rb'.
