@@ -27,4 +27,15 @@ class ActiveSupport::TestCase
     assert STDIN.gets[0].downcase == 'y', 'Test Failed.'
   end
 
+  def piface_output_and_wait(expect)
+    Rake::Task['scripts:executor'].execute
+    pins = Settings.pin_descriptions.piface
+
+    puts 'Expected:'
+    expect.each { |p| puts pins[p] }
+    puts '==='
+    puts 'Correct? (y/N)'
+    assert STDIN.gets[0].downcase == 'y', 'Test Failed.'
+  end
+
 end
