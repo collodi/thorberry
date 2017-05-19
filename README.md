@@ -14,8 +14,9 @@ Lightning watch system using
  - install `bundle` and `rails` gems
  - git clone thorberry
  - run `bundle install` and `bundle exec rake db:migrate db:seed` inside the cloned directory
- - [install & set up Nginx](#nginx-setup)
  - [edit pi_piper](#export-ebusy)
+ - [install & set up Nginx](#nginx-setup)
+ - [set up systemd](#systemd-setup)
  
 ## Setting Up Nginx <a name="nginx-setup"></a>
 An example configuration file looks like this:
@@ -85,6 +86,26 @@ Keep in mind that this is a workaround, not a fix.
 ## piface gem output pin number
 piface's README says that the relays can be accessed with pin 1 and 2.
 The correct pin numbers are 0 and 1. So the output pin numbers are from 0 to 7.
+
+## Setting Up Systemd <a name="systemd-setup"></a>
+Here is an example systemd file.
+
+    # /etc/systemd/system/thorberry.service
+    
+    [Unit]
+    Description=thorberry
+    Requires=network.target
+
+    [Service]
+    Type=simple
+    User=pi
+    WorkingDirectory=/home/pi/thorberry
+    ExecStart=/bin/bash -lc 'bundle exec rails server'
+    Restart=always
+
+    [Install]
+    WantedBy=multi-user.target
+After setting up Nginx, run `systemctl enable nginx thorberry`.
 
 ## Default Logins
 Administrator: `thor` / `sonofodin`  
