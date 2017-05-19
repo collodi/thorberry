@@ -14,7 +14,7 @@ class GpioTest < ActionDispatch::IntegrationTest
     :alpha
   end
 
-  test "gpio setup" do
+  test "0 gpio setup" do
     Pin.delete_all
     set_gpio_pins('AllClear', 'All', pinvals[0])
     set_gpio_pins('Caution', 'AllClear', pinvals[1])
@@ -24,20 +24,20 @@ class GpioTest < ActionDispatch::IntegrationTest
     set_gpio_pins('Caution', 'RedAlert', pinvals[5])
   end
 
-  test "AllClear gpio" do
+  test "1 AllClear gpio" do
     Status.delete_all
     Status.new(alert: 'AllClear').save
     gpio_output_and_wait(pinvals[0])
   end
 
-  test "Caution (From AllClear) gpio" do
+  test "2 Caution (From AllClear) gpio" do
     Status.delete_all
     Status.new(alert: 'AllClear').save
     Status.new(alert: 'Caution').save
     gpio_output_and_wait(pinvals[1])
   end
 
-  test "Warning (From AllClear) gpio" do
+  test "3 Warning (From AllClear) gpio" do
     Status.delete_all
     Status.new(alert: 'AllClear').save
     Status.new(alert: 'Caution').save
@@ -45,7 +45,7 @@ class GpioTest < ActionDispatch::IntegrationTest
     gpio_output_and_wait(pinvals[2])
   end
 
-  test "Caution (From AllClear & descend) gpio" do
+  test "4 Caution (From AllClear & descend) gpio" do
     Status.delete_all
     Status.new(alert: 'AllClear').save
     Status.new(alert: 'Caution').save
@@ -54,7 +54,7 @@ class GpioTest < ActionDispatch::IntegrationTest
     gpio_output_and_wait(pinvals[1])
   end
 
-  test "RedAlert gpio" do
+  test "5 RedAlert gpio" do
     Status.delete_all
     Status.new(alert: 'AllClear').save
     Status.new(alert: 'Caution').save
@@ -64,14 +64,14 @@ class GpioTest < ActionDispatch::IntegrationTest
     gpio_output_and_wait(pinvals[3])
   end
 
-  test "Warning (From RedAlert) gpio" do
+  test "6 Warning (From RedAlert) gpio" do
     Status.delete_all
     Status.new(alert: 'RedAlert').save
     Status.new(alert: 'Warning').save
     gpio_output_and_wait(pinvals[4])
   end
 
-  test "Caution (From RedAlert) gpio" do
+  test "7 Caution (From RedAlert) gpio" do
     Status.delete_all
     Status.new(alert: 'RedAlert').save
     Status.new(alert: 'Warning').save
@@ -79,7 +79,7 @@ class GpioTest < ActionDispatch::IntegrationTest
     gpio_output_and_wait(pinvals[5])
   end
 
-  test "Warning (From RedAlert & ascend) gpio" do
+  test "8 Warning (From RedAlert & ascend) gpio" do
     Status.delete_all
     Status.new(alert: 'RedAlert').save
     Status.new(alert: 'Warning').save
@@ -88,7 +88,7 @@ class GpioTest < ActionDispatch::IntegrationTest
     gpio_output_and_wait(pinvals[4])
   end
 
-  test "AllClear (From RedAlert) gpio" do
+  test "9 AllClear (From RedAlert) gpio" do
     Status.delete_all
     Status.new(alert: 'RedAlert').save
     Status.new(alert: 'AllClear').save
