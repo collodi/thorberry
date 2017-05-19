@@ -10,11 +10,11 @@ class ActiveSupport::TestCase
   def set_gpio_pins(stage, from, pins)
     gpios = Settings.pin_descriptions.gpio
     pnums = pins.map { |p| gpios.index("GPIO%02d" % p) }
-    Pin.new(stage: stage, from: from, pinval: pnums, module: 'gpio').save
+    assert Pin.new(stage: stage, from: from, pinval: pnums, module: 'gpio').save
   end
 
   def set_piface_pins(stage, from, pins)
-    Pin.new(stage: stage, from: from, pinval: pins, module: 'piface').save
+    assert Pin.new(stage: stage, from: from, pinval: pins, module: 'piface').save
   end
 
   def gpio_output_and_wait(expect)
