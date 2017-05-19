@@ -1,0 +1,13 @@
+[Unit]
+Description=thorberry
+Requires=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/thorberry
+ExecStart=/bin/bash -lc 'bundle exec rails server'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+upstream thorberry {
+    server localhost:3000;
+}
+
+server {
+    listen 80 default_server;
+    server_name _;
+
+    keepalive_timeout 5;
+
+    root /home/pi/thorberry/public;
+    access_log /home/pi/thorberry/log/nginx.access.log;
+    error_log /home/pi/thorberry/log/nginx.error.log info;
+
+    location / {
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        
+        if (-f $request_filename) {
+            break;
+        }
+        
+        proxy_pass http://thorberry;
+       }
+}
