@@ -65,7 +65,7 @@ For now, I applied a cheap workaround.
       @pins << pin unless @pins.include?(pin)
     end
     
-## pi_piper "/sys/class/gpio/export EBUSY" workaround
+## pi_piper "/sys/class/gpio/export EBUSY" workaround <a name="export-ebusy"></a>
 The problem arises because I cannot think of a good way to keep the GPIO pin instances alive.
 When the PiPiper::Pin.new is called on a pin that is already exported, the EBUSY error occurs.
 
