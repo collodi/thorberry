@@ -16,7 +16,7 @@ class PinsController < ApplicationController
 
   def set_pins
     param = params.require(:config_pins).permit(:stage, :from, :module, pinval: [])
-    pinval = param[:pinval].map(&:to_i)
+    pinval = (param[:pinval] || []).map(&:to_i)
 
     edit = Pin.find_or_initialize_by(stage: param[:stage], from: param[:from])
     edit.module = param[:module]
