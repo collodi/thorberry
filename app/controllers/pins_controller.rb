@@ -16,10 +16,11 @@ class PinsController < ApplicationController
 
   def set_pins
     param = params.require(:config_pins).permit(:stage, :from, :module, pinval: [])
+    pinval = param[:pinval].map(&:to_i)
 
     edit = Pin.find_or_initialize_by(stage: param[:stage], from: param[:from])
     edit.module = param[:module]
-    edit.pinval = param[:pinval]
+    edit.pinval = pinval
     edit.save
 
     redirect_to pins_path, notice: "Configuration Saved."
